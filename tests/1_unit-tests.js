@@ -12,21 +12,28 @@ suite('Unit Tests', function(){
       assert.equal(convertHandler.getNum('3.L'), 3)
       assert.equal(convertHandler.getNum('3..L'), 'invalid number')
       assert.equal(convertHandler.getNum('3./L'), 'invalid number')
+      assert.equal(convertHandler.getNum('3'), 3)
     })
     test('correctly read a decimal number input', function() {
       assert.equal(convertHandler.getNum('3.1km'), 3.1)
       assert.equal(convertHandler.getNum('.21L'), 0.21)
+      assert.equal(convertHandler.getNum('.21'), 0.21)
     })
     test('correctly read a fractional input', function() {
       assert.equal(convertHandler.getNum('1/2km'), 1 / 2)
+      assert.equal(convertHandler.getNum('1/2'), 1 / 2)
     })
     test('correctly read a fractional input with a decimal', function() {
       assert.equal(convertHandler.getNum('3.1/2.5km'), 3.1 / 2.5)
+      assert.equal(convertHandler.getNum('3.1/2.5'), 3.1 / 2.5)
       assert.equal(convertHandler.getNum('3/2.5km'), 3 / 2.5)
+      assert.equal(convertHandler.getNum('3/2.5'), 3 / 2.5)
       assert.equal(convertHandler.getNum('3.1/2km'), 3.1 / 2)
+      assert.equal(convertHandler.getNum('3.1/2'), 3.1 / 2)
     })
     test('correctly return an error on a double-fraction', function() {
       assert.equal(convertHandler.getNum('3/2/5lbs'), 'invalid number')
+      assert.equal(convertHandler.getNum('3/2/5'), 'invalid number')
     })
     test('correctly default to 1 when no numerical input is provided', function() {
       assert.equal(convertHandler.getNum('km'), 1)
