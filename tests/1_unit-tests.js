@@ -37,6 +37,7 @@ suite('Unit Tests', function(){
     })
     test('correctly default to 1 when no numerical input is provided', function() {
       assert.equal(convertHandler.getNum('km'), 1)
+      assert.equal(convertHandler.getNum(''), 1)
     })
   })
 
