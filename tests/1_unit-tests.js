@@ -61,22 +61,22 @@ suite('Unit Tests', function(){
   suite('converHandler.getReturnUnit', function() {
     test('return the correct return unit for each valid input unit', function() {
       assert.equal(convertHandler.getReturnUnit('mi'), 'km')
-      assert.equal(convertHandler.getUnit('km'), 'mi')
-      assert.equal(convertHandler.getUnit('gal'), 'L')
-      assert.equal(convertHandler.getUnit('L'), 'gal')
-      assert.equal(convertHandler.getUnit('lbs'), 'kg')
-      assert.equal(convertHandler.getUnit('kg'), 'lbs')
+      assert.equal(convertHandler.getReturnUnit('km'), 'mi')
+      assert.equal(convertHandler.getReturnUnit('gal'), 'L')
+      assert.equal(convertHandler.getReturnUnit('L'), 'gal')
+      assert.equal(convertHandler.getReturnUnit('lbs'), 'kg')
+      assert.equal(convertHandler.getReturnUnit('kg'), 'lbs')
     })
   })
 
   suite('convertHandler.spellOutUnit', function() {
     test('correctly return the spelled-out string unit for each valid input unit', function() {
       assert.equal(convertHandler.spellOutUnit('mi'), 'miles')
-      assert.equal(convertHandler.getUnit('km'), 'kilometers')
-      assert.equal(convertHandler.getUnit('gal'), 'gallons')
-      assert.equal(convertHandler.getUnit('L'), 'liters')
-      assert.equal(convertHandler.getUnit('lbs'), 'pounds')
-      assert.equal(convertHandler.getUnit('kg'), 'kilograms')
+      assert.equal(convertHandler.spellOutUnit('km'), 'kilometers')
+      assert.equal(convertHandler.spellOutUnit('gal'), 'gallons')
+      assert.equal(convertHandler.spellOutUnit('L'), 'liters')
+      assert.equal(convertHandler.spellOutUnit('lbs'), 'pounds')
+      assert.equal(convertHandler.spellOutUnit('kg'), 'kilograms')
     })
   })
 
