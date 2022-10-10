@@ -45,38 +45,85 @@ function ConvertHandler() {
   };
   
   this.getUnit = function(input) {
-    let result;
+    let firstLetter = input.match(/[a-zA-z]/)
+
+    if (!firstLetter) return 'invalid unit'
     
-    return result;
+    let unvalidatedUnit = input.slice(firstLetter.index, input.length)
+    unvalidatedUnit = unvalidatedUnit.toLowerCase()
+
+    switch(unvalidatedUnit) {
+      case 'km':
+        return 'km'
+      case 'mi':
+        return 'mi'
+      case 'gal':
+        return 'gal'
+      case 'l':
+        return 'L'
+      case 'kg':
+        return 'kg'
+      case 'lbs':
+        return 'lbs'
+      default:
+        return 'invalid unit'
+    }
   };
   
   this.getReturnUnit = function(initUnit) {
-    let result;
-    
-    return result;
+    switch(initUnit) {
+      case 'km':
+        return 'mi'
+      case 'mi':
+        return 'km'
+      case 'kg':
+        return 'lbs'
+      case 'lbs':
+        return 'kg'
+      case 'L':
+        return 'gal'
+      case 'gal':
+        return 'L'
+    }
   };
 
   this.spellOutUnit = function(unit) {
-    let result;
-    
-    return result;
+    switch(unit) {
+      case 'km':
+        return 'kilometers'
+      case 'mi':
+        return 'miles'
+      case 'lbs':
+        return 'pounds'
+      case 'kg':
+        return 'kilograms'
+      case 'L':
+        return 'liters'
+      case 'gal':
+        return 'gallons'
+    }
   };
   
   this.convert = function(initNum, initUnit) {
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
-    let result;
     
-    return result;
+    switch(initUnit) {
+      case 'km':
+        return (initNum / miToKm).toFixed(5)
+      case 'mi':
+        return (initNum * miToKm).toFixed(5)
+      case 'gal':
+        return (initNum * galToL).toFixed(5)
+      case 'L':
+        return (initNum / galToL).toFixed(5)
+      case 'lbs':
+        return (initNum * lbsToKg).toFixed(5)
+      case 'kg':
+        return (initNum / lbsToKg).toFixed(5)
+    }
   };
-  
-  this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    let result;
-    
-    return result;
-  };
-  
 }
 
 module.exports = ConvertHandler;
