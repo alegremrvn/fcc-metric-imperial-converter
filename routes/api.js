@@ -13,6 +13,14 @@ module.exports = function (app) {
     let returnNum = convertHandler.convert(initNum, initUnit)
     let returnUnit = convertHandler.getReturnUnit(initUnit)
 
+    if (initUnit === 'invalid unit' && initNum === 'invalid number') {
+      res.type('txt').send('invalid number and unit')
+    } else if (initUnit === 'invalid unit') {
+      res.type('txt').send('invalid unit')
+    } else if (initNum === 'invalid number') {
+      res.type('txt').send('invalid number')
+    }
+
     res.json({
       initNum: initNum,
       initUnit: initUnit,
